@@ -4,9 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DR4_AT</title>
-    <script src="./script.js" defer></script>
+    <script src="./script.js" defer type="module"></script>
+    <style>
+      .card{
+        background-color: rgba(245, 245, 245, 0.336);
+        width: fit-content;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      p {
+        word-wrap: break-word;
+        margin: 0;
+        padding: 0;
+        line-height: 1.85;
+      }
+      input{
+        font-size: 20px;
+      }
+      input[type='number']{
+        width: 10ch;
+      }
+    </style>
   </head>
   <body style="background-color: rgba(182, 126, 21, 0.61)">
     <h1>6 - Série Fibonacci</h1>
+    <form action="">
+      <input type="number" id="numero">
+      <input type="submit" value="Gerar Sequência" >
+    </form>
+    <div>
+    </div>
   </body>
 </html>

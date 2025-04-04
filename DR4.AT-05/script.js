@@ -38,7 +38,7 @@ function tabuadaArray() {
     }
     tabuada.push(tabuadaNumero);
   }
-  document.body.innerHTML += `<div class='container'> <strong>Array da tabuada:</strong> [${tabuada.join(
+  document.body.innerHTML += `<div class='container card'> <strong>Array da tabuada:</strong> [${tabuada.join(
     "], ["
   )}]</div>`;
 }

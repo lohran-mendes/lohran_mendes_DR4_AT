@@ -12,3 +12,39 @@
 // Considerações:
 
 // Serão usados como teste os números 4181 e 6765.
+
+import { validaNumero } from "../lib/number.js";
+
+const form = document.querySelector("form");
+const numero = document.querySelector("#numero");
+const div = document.querySelector("div");
+
+function gerarFibonacci(numero) {
+  const valor = validaNumero(numero, "console.error");
+
+  if (valor === false || isNaN(valor) || valor <= 0) {
+    throw new Error("O valor informado deve ser um número inteiro positivo maior que zero.");
+  }
+
+  let listaDeFibonacci = [0, 1];
+  let proximoValor = 1; 
+
+  while (proximoValor <= valor) {
+    listaDeFibonacci.push(proximoValor);
+    proximoValor = listaDeFibonacci[listaDeFibonacci.length - 1] + listaDeFibonacci[listaDeFibonacci.length - 2];
+  }
+
+  div.innerHTML = `
+  <h3>Lista de Fibonacci:</h3>
+  <div class="card"><p>${listaDeFibonacci.join(", ")}</p></div>`;
+}
+
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  try {
+    gerarFibonacci(numero.value);
+  } catch (error) {
+    div.innerHTML = `<div class="card" style="margin-top: 10px;"><p style="color:red;">Erro: ${error.message}</p></div>`;
+  }
+});
