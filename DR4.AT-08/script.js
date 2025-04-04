@@ -12,3 +12,42 @@
 
 // Use prompt e alert.
 // Teste o seu programa com cenários diferentes.
+import { convertToNumber } from "../lib/number.js";
+
+const chapas = [1, 2, 3, 4, 5];
+const votosChapa = [];
+
+function recebeVotos() {
+  for (let i = 0; i < chapas.length; i++) {
+    let voto = prompt(`Quantos votos a chapa ${chapas[i]} recebeu?`);
+    if (voto === null) {
+      alert("Cancelando programa...");
+      break;
+    } else {
+      voto = convertToNumber(voto, "alert");
+    }
+    if (!isNaN(voto) && voto >= 0 && Number.isInteger(voto)) {
+      votosChapa.push(voto);
+    } else {
+      alert("Tente novamente colocando um valor numérico inteiro!");
+      i--;
+    }
+  }
+  mostrarResultados()
+}
+
+function mostrarResultados(){
+  const totalDeVotos = votosChapa.reduce((previousValue, currentValue) => previousValue + currentValue)
+  let texto = 'Aqui está os resultados:\n'
+  let segundoTurno = true;
+  chapas.forEach((chapa, index) => {
+    let porcentagem = ((votosChapa[index]* 100) / totalDeVotos).toFixed(2)
+    if(porcentagem > 50) segundoTurno = false
+    texto += `Chapa "${chapa}": recebeu ${votosChapa[index]} votos.  ${porcentagem}%\n`
+  })
+  texto += `Total de votos:  ${totalDeVotos}\n`
+  texto += `${segundoTurno === true? 'Será necessário realizar um segundo turno!': 'Não será necessário realizar um segundo turno!'}`
+  alert(texto)
+}
+
+recebeVotos();
