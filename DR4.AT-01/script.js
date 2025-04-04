@@ -31,5 +31,5 @@ document.body.innerHTML += `<p>Aqui está o array informado: [${array.join(
   ", "
 )}]</p>`;
 document.body.innerHTML += `<p>O item do array que aparece com mais frequência é [${
-  elementoMaisFrequente(array)[0].join(', ')
-}] aparecendo ${elementoMaisFrequente(array)[1]} vezes.</p>`;
+  elementoMaisFrequente(array, "console.error")[0].join(', ')
+}] aparecendo ${elementoMaisFrequente(array, "console.error")[1]} vezes.</p>`;

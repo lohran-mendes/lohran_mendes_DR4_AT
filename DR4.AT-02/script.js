@@ -10,3 +10,15 @@
 // Considerações:
 
 // O array original poderá ser alterado para testar outros cenários de execução.
+
+import { removeDuplicatas } from "../lib/array.js";
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 3, 4, 5, 6, 10, 22];
+
+document.body.innerHTML += `<p>Aqui está o array informado: [${array.join(
+  ", "
+)}].</p>`;
+document.body.innerHTML += `<p>Aqui está o array sem duplicatas [${removeDuplicatas(
+  array,
+  "console.error"
+).join(", ")}].`;
