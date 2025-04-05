@@ -13,7 +13,7 @@ function verificaPalindromo() {
   try {
     entrada = prompt(
       "Insira aqui a frase a ser verificada como palíndromo."
-    ).trim();
+    );
     if (typeof entrada !== "string" || entrada.length === 0) {
       throw new Error(
         "O valor de entrada não pode ser vazio!\nTente novamente com um valor válido."
